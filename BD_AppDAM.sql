@@ -457,13 +457,8 @@ GO
 CREATE PROCEDURE usp_listaLibros
 AS
 BEGIN
-    SELECT L.id_libro, L.titulo, A.nombre AS Autor, E.nombre AS Editorial,
-		   L.descripcion, L.imagen, C.nombre AS Categoria, ES.tipo_estado AS Estado
-	FROM Libros L
-	INNER JOIN Autores A ON L.id_autor = A.id_autor
-	INNER JOIN Editoriales E ON L.id_editorial = E.id_editorial
-	INNER JOIN Categorias C ON L.id_categoria = C.id_categoria
-	INNER JOIN Estado ES ON L.id_estado = ES.id_estado
+    SELECT id_libro, titulo, id_autor, id_editorial, descripcion, imagen, id_categoria, id_estado 
+	FROM Libros
 END;
 GO
 
